@@ -1,4 +1,5 @@
 import React from "react";
+import "./components.scss";
 
 const Button = ({ content, bg_color, text_color }) => {
   const colors = {
@@ -16,12 +17,12 @@ const Button = ({ content, bg_color, text_color }) => {
   };
 
   return (
-    <div
+    <button
       className="btn"
-      style={{ backgroundColor: colors[bg_color], color: text_color }}
+      style={{ backgroundColor: colors[bg_color], color: text_color, cursor: "pointer", border: "none", outline: "none" }}
     >
       {content}
-    </div>
+    </button>
   );
 };
 

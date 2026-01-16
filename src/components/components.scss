@@ -1,5 +1,6 @@
 // ! COMPONENTS STYLE
 
+
 header {
   position: fixed;
   width: 100%;
@@ -20,3 +21,8 @@ header nav {
   }
 }
 
+
+.btn:hover {
+  background-color: #AC7B3E !important;
+  transition: 0.3s;
+}

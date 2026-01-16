@@ -11,10 +11,45 @@
 // ! welcome section styles
 #home {
   min-height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
-  background-image: url("../../assets/images/background-overlay.png");
+  overflow: hidden;
+}
+
+// Background slider styles
+.background-slider {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+
+  .swiper-wrapper {
+    height: 100%;
+  }
+
+  .swiper-slide {
+    width: 100%;
+    height: 100%;
+  }
+
+  .slide-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+// Home content overlay
+.home-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .btn {
@@ -139,6 +174,9 @@
   }
   .footer-features .feature-item .icon {
     transform: scale(0.6);
+  }
+  .footer-features .feature-item .text {
+    flex: inherit;
   }
 }
 

@@ -5,51 +5,82 @@ import { Link } from "react-router-dom";
 import ai_icon from "../../assets/icons/ai-icon.svg";
 import grow_icon from "../../assets/icons/grow-icon.svg";
 import support_icon from "../../assets/icons/support-icon.svg";
+import bgImage1 from "../../assets/images/background-overlay.png";
+import bgImage2 from "../../assets/images/background-overlay_2.png";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+import "swiper/swiper-bundle.css";
+
+const backgroundImages = [bgImage1, bgImage2];
 
 const Welcome = () => {
   return (
     <section id="home">
-      <div className="container">
-        <div className="container-title">
-          <h1>Are You Ready To Discover Azerbaijan ?</h1>
+      <Swiper
+        modules={[Autoplay, EffectFade]}
+        effect="slide"
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
+        loop={true}
+        speed={1000}
+        className="background-slider"
+      >
+        {backgroundImages.map((image, index) => (
+          <SwiperSlide key={index}>
+            <div
+              className="slide-bg"
+              style={{ backgroundImage: `url(${image})` }}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      <div className="home-content">
+        <div className="container">
+          <div className="container-title">
+            <h1>Are You Ready To Discover Azerbaijan ?</h1>
+          </div>
+          <div className="container-desc">
+            <p>
+              Feel the harmony of ancient spirit and modernism at every step.
+              Discover a unique geography where historical heritage meets
+              contemporary luxury with us.
+            </p>
+          </div>
+          <Link to="/destinations">
+            <Button
+              content="Plan Your Journey"
+              bg_color={"yellowMain"}
+              text_color={"#fff"}
+            />
+          </Link>
         </div>
-        <div className="container-desc">
-          <p>
-            Feel the harmony of ancient spirit and modernism at every step.
-            Discover a unique geography where historical heritage meets
-            contemporary luxury with us.
-          </p>
-        </div>
-        <Link to="/destinations">
-          <Button
-            content="Plan Your Journey"
-            bg_color={"yellowMain"}
-            text_color={"#fff"}
-          />
-        </Link>
-      </div>
-      <div className="footer-features">
-        <div className="feature-item">
-          <span className="icon">
-            <img src={ai_icon} alt="" />
-          </span>
-          <span className="text">Design your journey with the power of AI</span>
-        </div>
-        <div className="feature-item">
-          <span className="icon">
-            <img src={grow_icon} alt="" />
-          </span>
-          <span className="text">
-            Skip the sign-up and start planning your trip instantly
-          </span>
-        </div>
-        <div className="feature-item">
-          <span className="icon">
-            <img src={support_icon} alt="" />
-          </span>
-          <span className="text">
-            Every plan includes expert local tour guide support.
-          </span>
+        <div className="footer-features">
+          <div className="feature-item">
+            <span className="icon">
+              <img src={ai_icon} alt="" />
+            </span>
+            <span className="text">Design your journey with the power of AI</span>
+          </div>
+          <div className="feature-item">
+            <span className="icon">
+              <img src={grow_icon} alt="" />
+            </span>
+            <span className="text">
+              Skip the sign-up and start planning your trip instantly
+            </span>
+          </div>
+          <div className="feature-item">
+            <span className="icon">
+              <img src={support_icon} alt="" />
+            </span>
+            <span className="text">
+              Every plan includes expert local tour guide support.
+            </span>
+          </div>
         </div>
       </div>
     </section>
